@@ -1,4 +1,3 @@
-import { expect, test } from "@jest/globals";
 import reverseString from "../src/reverseString";
 
 describe("\nreverseString: function that takes a string and returns it reversed", () => {
