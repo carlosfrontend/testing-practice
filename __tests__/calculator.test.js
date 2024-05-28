@@ -119,7 +119,7 @@ describe("\nTests for divide method", () => {
   });
 });
 
-describe("\nTests for multiply  method", () => {
+describe("\nTests for multiply method", () => {
   test("multiply() should return an error", () => {
     expect(() => calculator.multiply()).toThrow("Parameters must be numbers!");
   });
