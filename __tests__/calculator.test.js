@@ -41,8 +41,8 @@ describe("\nTests for add method", () => {
     expect(calculator.add(-8, 3)).toBe(-5);
   });
 
-  test("add(1,-3) should return -7", () => {
-    expect(calculator.add(1, -8)).toBe(-7);
+  test("add(1,-3) should return -2", () => {
+    expect(calculator.add(1, -3)).toBe(-2);
   });
 
   test("add(0.1,0.2) should return 0.3", () => {
@@ -80,7 +80,7 @@ describe("\nTests for subtract method", () => {
       /^Both parameters must be numbers!$/
     );
   });
-  test("subtract(-0.1,0.2) should return 15", () => {
+  test("subtract(-0.1,0.2) should return -0.3", () => {
     expect(calculator.subtract(-0.1, 0.2)).toBe(-0.3);
   });
   test("subtract(-10,-20) should return 10", () => {

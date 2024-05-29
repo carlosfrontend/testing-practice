@@ -4,7 +4,7 @@ describe("\nreverseString: function that takes a string and returns it reversed"
   test("should exist", () => {
     expect(reverseString).toBeDefined();
   });
-  test('reverseString("Hello") should return "olleH', () => {
+  test('reverseString("Hello") should return "olleH"', () => {
     expect(reverseString("Hello")).toMatch(/^olleH$/);
   });
 
