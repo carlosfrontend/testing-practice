@@ -13,34 +13,33 @@ const caesarCipher = (str, shiftF) => {
   };
 
   const createCipherText = () => {
-    const cipherArr = [];
-    const regex = /[\W]/g;
-    const space = /\s/g;
-    const underscore = /_/g;
-    const number = /\d/g;
+    const cipherTextArray = [];
+    let index;
+    let regex = /[\W_\d]/;
 
     for (let i = 0; i < str.length; i++) {
-      let index = plainAlphabet.indexOf(str[i].toLowerCase());
-
+      index = plainAlphabet.findIndex((el) => {
+        return el.toUpperCase() === str[i] || el.toLowerCase() === str[i];
+      });
       if (regex.test(str[i])) {
-        cipherArr.push(str[i]);
-      } else if (space.test(str[i])) {
-        cipherArr.push(" ");
-      } else if (underscore.test(str[i])) {
-        cipherArr.push("_");
+        cipherTextArray.push(str[i]);
       } else {
-        if (str[i] === str[i].toUpperCase()) {
-          cipherArr.push(getCipherAlphabet()[index].toUpperCase());
-        }
-        if (str[i] === str[i].toLowerCase()) {
-          cipherArr.push(getCipherAlphabet()[index].toLowerCase());
+        if (str[i].toUpperCase() === str[i]) {
+          cipherTextArray.push(getCipherAlphabet()[index].toUpperCase());
+        } else {
+          cipherTextArray.push(getCipherAlphabet()[index].toLowerCase());
         }
       }
     }
-    return cipherArr.join("");
+    return cipherTextArray.join("");
   };
 
-  return createCipherText();
+  if (typeof str === "string" && typeof shiftF === "number") {
+    return createCipherText();
+  }
+  throw new Error(
+    "First parameter must be a string and second parameter must be a number"
+  );
 };
 
 export default caesarCipher;
